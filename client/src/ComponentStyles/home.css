@@ -1,0 +1,44 @@
+.quiz__home{
+    font-family: 'Montserrat', sans-serif;
+}
+.quiz__home h1, .quiz__home p{
+    text-align: center;
+}
+.quiz__home span{
+    color: rgb(82, 80, 80);
+    font-size: 14px;
+}
+.quiz__home .quiz{
+    width: 60%;
+    display: block;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px 0;
+    border: 1px solid #a5a4a4;
+}
+.quiz__home .quiz h3{
+    margin-bottom: 40px;
+}
+.quiz__home .quiz .options{
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+.quiz__home .quiz .options div{
+    margin-bottom: 20px;
+}
+.quiz__home .quiz .options label, .quiz__home .quiz .options input{
+    cursor: pointer;
+}
+.quiz__home button{
+    padding: 15px 60px;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    display: block;
+    margin: 0 auto;
+}
