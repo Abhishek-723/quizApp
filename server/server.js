@@ -6,12 +6,19 @@ const connUri = process.env.MONGO_LOCAL_CONN_URL;
 let PORT = process.env.PORT || 4000;
 const app = express();
 const fs = require('fs');
-const csvFilePath=''
 const csv=require('csvtojson')
 var cron = require("node-cron");
 let filePath = "./Questions.csv";
 const Question = require("./Model/QuestionsModel")
-let previousqstn;
+
+const corsOptions ={
+    origin:'*', 
+    credentials:true, 
+    optionSuccessStatus:200,
+}
+app.use(cors(corsOptions))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 mongoose.promise = global.Promise;
 mongoose.connect(connUri, { useNewUrlParser: true , useUnifiedTopology: true});
@@ -29,27 +36,38 @@ return result
 }
 
 cron.schedule("1 * * * * *",() => {
-    console.log("run")
     ImporttoDb();
-    // CSVtoJson(filePath)
 })
 
 const ImporttoDb = async() => {
     var jsonArr = await CSVtoJson(filePath)
-    // var jsR = await Question.find({})
     jsonArr.map(async js =>{
+        let k=0;
         const qs = await Question.find();
-        
-        const question = new Question(js);
-        console.log(question);
-        await question.save();
+        for(let i=0; i<qs.length; i++){
+            if(qs[i].Questions.Question===js.Questions.Question){
+                k++;
+            }
+        }
+        if(k===0){
+            const question = new Question(js);
+            await question.save();
+        }
     })
-    previousqstn =jsonArr;
 }
 
 app.get("/", async (req, res) => {
     const jsonArray=await CSVtoJson(filePath);
     console.log(jsonArray);
+})
+
+app.get("/questions", async(req, res) => {
+    const questions = await Question.find();
+
+    res.status(200).json({
+        success: "true",
+        questions
+    })
 })
 
 

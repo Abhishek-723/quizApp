@@ -26,6 +26,10 @@ const QuestionSchema = new mongoose.Schema({
             type:String,
             required: true
         },
+        Answers: {
+            type: String,
+            required: true
+        }
     }
 })
 

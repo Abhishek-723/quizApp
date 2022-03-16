@@ -19,7 +19,7 @@
     /* border: 1px solid rgb(133, 187, 53); */
 }
 .results .check .incorrect{
-    background-color: #FF0000;
+    background-color: #fc3737;
     padding: 20px 0;
     border-radius: 12px;
 }

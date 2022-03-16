@@ -1,4 +1,8 @@
 Category,Questions.Question,Questions.OptionA,Questions.OptionB,Questions.OptionC,Questions.OptionD,Questions.Answers
 MCQ,What is the full form of PHP?,A,B,C,D,C
 MCQ,What is the full form of CSS?,E,F,G,H,H
-MCQ,Who is Abhishwk ?,Madarchod,Maghiya,Chhpodi,Randi Behenchod,D
+MCQ,What is the full form of HTML?,Hyper Markup Language,Hypertext Markup Language,HyperActive Markup Language,HyperLink Markup Language,Hypertext Markup Language
+MCQ,Which is a backend architechture?,NodeJs,HTML,CSS,Bootstrap,NodeJs
+MCQ,What will be your current role?,Backend,Frontend,Design,None,Backend
+MCQ,What is the package installer for node,npm,npx,ng,None,npm
+MCQ,Which of the following is frontend Architechture?,SQL,Mongodb,HTML,Nodejs,HTML

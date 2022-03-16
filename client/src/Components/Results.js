@@ -7,12 +7,13 @@ function Results() {
     const [userAnswers, setUserAnswers] = useState(location.state.userAnswer);
     const [cAnswer, setCAnswer] = useState(location.state.correctAnswers);
     const [checkAnswer, setCheckAnswer] = useState([]);
+    const [questions, setQuestions] = useState(location.state.final);
     console.log(location.state);
     useEffect(() => {
       let A = [...userAnswers];
       let B = [...cAnswer];
       let C = [...checkAnswer];
-      for(let i=0; i<A.length; i++){
+      for(let i=0; i<B.length; i++){
         if(A[i]===B[i]){
           C[i]=true;
           // console.log(val);
@@ -30,7 +31,7 @@ function Results() {
             {
               data ? (
                 <div className="answers correct">
-                  <h3>What is the full form of PHP?</h3>
+                  <h3>{questions[index]}</h3>
                   <div>
                     <p>Your Answer : {userAnswers[index]}</p>
                     <p>Correct Answer : {cAnswer[index]}</p>
@@ -39,7 +40,7 @@ function Results() {
 
               ) : (
                 <div className="answers incorrect">
-                  <h3>What is the full form of PHP?</h3>
+                  <h3>{questions[index]}</h3>
                   <div>
                     <p>Your Answer : {userAnswers[index]}</p>
                     <p>Correct Answer : {cAnswer[index]}</p>
